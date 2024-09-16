@@ -15,15 +15,12 @@ class Iterator:
         return self
 
     def __next__(self):
-        # Условие завершения итерации в зависимости от знака шага
         if (self.step > 0 and self.pointer > self.stop) or (self.step < 0 and self.pointer < self.stop):
             raise StopIteration
-        # Сохранение текущего значения и изменение pointer на шаг
         current = self.pointer
         self.pointer += self.step
         return current
 
-# Пример использования
 try:
     iter1 = Iterator(100, 200, 0)
     for i in iter1:
